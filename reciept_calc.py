@@ -38,6 +38,10 @@ def calc_recipt_line(price, amt, item):
     return ret_total
 
 # array input
+
+
+
+
 # calculates entire recipt
 def calc_recipt(a_item_lst = itemLst, a_amt_lst = amtLst, a_priceLst = priceLst):
     # the current total all lines
@@ -52,12 +56,14 @@ def calc_recipt(a_item_lst = itemLst, a_amt_lst = amtLst, a_priceLst = priceLst)
         total_all_lines += calc_recipt_line(a_priceLst[i], a_amt_lst[i], a_item_lst[i])
 
     # new logic or method call here
-    for x in range(a_item_lst):
+    for x in range(len(a_item_lst)):
+        # append 1 full line line to print
+        total_line_str += a_item_lst[x] + ": " + str(a_priceLst[x]) + "-- " + str(a_amt_lst[x]) + "-- " + str(calc_recipt_line(a_priceLst[x], a_amt_lst[x], a_item_lst[x])) + "\n"
+    print(total_line_str)
 
 
     # return the total spent on all items
     print("is running")
     return total_all_lines
-
 ## function test calls
 print(calc_recipt(itemLst,amtLst,priceLst))
